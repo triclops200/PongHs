@@ -88,13 +88,13 @@ ballAi gs (w,h) =
   else if inPaddle (ball gs) (rpaddle gs) then
     gs {ball = (ball gs) {vx = -(vx (ball gs))*1.09,
                           vy = (vy (ball gs)) + (vy (rpaddle gs))}}
-  else if x (ball gs) <= 0 then
+  else if x (ball gs) <= 5 then
          gs {rscore = (rscore gs) + 1,
              ball = Object {x = 30, y = 30, vx = 200, vy = 200}}
   else if x (ball gs) >= (fromIntegral w) then
          gs {lscore = (lscore gs) + 1,
              ball = Object {x = 30, y = 30, vx = 200, vy = 200}}
-  else if y (ball gs) >= (fromIntegral h) || y (ball gs) <= 0 then
+  else if y (ball gs) >= (fromIntegral h)-5 || y (ball gs) <= 0 then
          gs { ball = (ball gs) {vy = -(vy (ball gs))}} 
   else
     gs
