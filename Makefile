@@ -1,2 +1,3 @@
-pong: main.hs
-	ghc --make main.hs -o pong
+dist/build/PongHS/PongHS: main.hs
+	cabal configure
+	cabal build
